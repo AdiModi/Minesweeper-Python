@@ -1,0 +1,80 @@
+{
+  "title": "Minesweeper",
+  "gridSize": 15,
+  "noOfBombs": 20,
+  "surroundingDistance": 1,
+  "imageFilePaths": {
+    "exploredBomb": "D:\\Codes\\Python\\Minesweeper\\resources\\images\\exploredBomb.png",
+    "flag": "D:\\Codes\\Python\\Minesweeper\\resources\\images\\flag.png",
+    "icon": "D:\\Codes\\Python\\Minesweeper\\resources\\images\\icon.ico",
+    "unexplored": "D:\\Codes\\Python\\Minesweeper\\resources\\images\\unexplored.png",
+    "unexploredBomb": "D:\\Codes\\Python\\Minesweeper\\resources\\images\\unexploredBomb.png",
+    "explored": "D:\\Codes\\Python\\Minesweeper\\resources\\images\\explored.png",
+    "unexploredFlag": "D:\\Codes\\Python\\Minesweeper\\resources\\images\\unexploredFlag.png"
+  },
+  "colors":{
+    "unexplored": "#224908",
+    "explored": "#645244",
+    "flag": "#891400"
+  },
+  "fonts": [
+    "PacFont",
+    "NeuropolXRg-Regular",
+    "CrackMan-Regular",
+    "ArcadeClassic",
+    "Halo",
+    "Iomanoid-Regular",
+    "AstronBoyRg-Regular",
+    "Aurora",
+    "Ferrum",
+    "Gasalt",
+    "Videophreak"
+  ],
+  "fontSizes":{
+    "label": 25,
+    "button": 15,
+    "resultLabel": 30,
+    "resultButton": 10
+  },
+  "genericLabelConfig": {
+    "bd": 10,
+    "padx": 10,
+    "pady": 10,
+    "text": "",
+    "bg": "#E8D6CB",
+    "justify": "left",
+    "relief": "raised"
+  },
+  "genericButtonConfig": {
+    "bd": 10,
+    "width": 30,
+    "height": 30,
+    "text": " ",
+    "relief": "raised",
+    "compound": "center",
+    "fg": "#891400"
+  },
+  "frameConfig" : {
+    "bd": 10,
+    "padx": 5,
+    "pady": 5,
+    "relief": "ridge",
+    "bg": "#645244"
+  },
+  "resultMessageConfig" : {
+    "bd": 10,
+    "width": 10,
+    "height": 5,
+    "text": "",
+    "relief": "ridge",
+    "fg": "#000000"
+  },
+  "resultButtonConfig" : {
+    "bd": 5,
+    "width": 20,
+    "height": 5,
+    "text": "Okay",
+    "compound": "center",
+    "fg": "#000000"
+  }
+}
