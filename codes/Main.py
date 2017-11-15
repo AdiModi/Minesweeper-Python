@@ -109,9 +109,9 @@ class Minesweeper:
             resultMessageConfig["text"] = "You Won!"
             print("You Won!")
             resultMessageConfig["fg"] = self.config["colors"]["unexplored"]
-        print("Total Time of the play : " + str(self.minutes) + " Minutes & " + str(self.seconds) + " Seconds")
         resultMessageConfig["font"] = (self.config["fonts"][self.fontOption], self.config["fontSizes"]["resultLabel"])
         resultMessage.config(resultMessageConfig)
+        print("Total Time of the play : " + str(self.minutes) + " Minutes & " + str(self.seconds) + " Seconds")
 
         resultButton = tk.Button(resultScreen, command=lambda : exit(1))
         resultButtonConfig = self.config["resultButtonConfig"]
