@@ -1,7 +1,7 @@
 {
   "title": "Minesweeper",
-  "gridSize": 15,
-  "noOfBombs": 20,
+  "gridSize": 10,
+  "noOfBombs": 9,
   "surroundingDistance": 1,
   "imageFilePaths": {
     "exploredBomb": "D:\\Codes\\Python\\Minesweeper\\resources\\images\\exploredBomb.png",
@@ -76,5 +76,7 @@
     "text": "Okay",
     "compound": "center",
     "fg": "#000000"
-  }
+  },
+  "printGrid" : false,
+  "liveLogging" : true
 }

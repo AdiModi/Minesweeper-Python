@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import *
+import time, sys
 from generic.JsonConfigParser import ConfigParser
 from PIL import ImageTk
 import random
@@ -21,7 +22,10 @@ class Minesweeper:
         self.noOfTilesLeft = self.gridSize ** 2 - self.noOfBombs
         self.surroundingDistance = self.config["surroundingDistance"]
 
-        self.fontOption = 5
+        self.fontOption = 2
+        self.timeStart = time.time()
+        self.seconds = 0
+        self.minutes = 0
 
         self.genericLabelConfig = self.config["genericLabelConfig"]
         self.genericLabelConfig["font"] = (self.config["fonts"][self.fontOption], self.config["fontSizes"]["label"])
@@ -51,8 +55,9 @@ class Minesweeper:
         self.bombGrid = [[0] * self.gridSize for _ in range(0, self.gridSize)]
         self.setupBombs()
         self.setupNeighbours()
-        for i in range(self.gridSize):
-            print(self.bombGrid[i])
+        if self.config["printGrid"]:
+            for i in range(self.gridSize):
+                print(self.bombGrid[i])
 
     def setupButtons(self):
         self.buttonGrid = [[None] * self.gridSize for _ in range(0, self.gridSize)]
@@ -63,6 +68,14 @@ class Minesweeper:
                 self.buttonGrid[i][j].grid(row=i + 1, column=j)
 
     def displayResult(self, type = False):
+
+        if self.config["liveLogging"]:
+            print("Game Over!")
+
+        self.seconds = int(time.time() - self.timeStart) - self.minutes * 60
+        if self.seconds >= 60:
+            self.minutes = self.seconds / 60
+            self.seconds = self.seconds % 60
 
         for i in range(self.gridSize):
             for j in range(self.gridSize):
@@ -91,9 +104,12 @@ class Minesweeper:
         if not type:
             resultMessageConfig["text"] = "You Lost!"
             resultMessageConfig["fg"] = "#000000"
+            print("You Lost!")
         else:
             resultMessageConfig["text"] = "You Won!"
+            print("You Won!")
             resultMessageConfig["fg"] = self.config["colors"]["unexplored"]
+        print("Total Time of the play : " + str(self.minutes) + " Minutes & " + str(self.seconds) + " Seconds")
         resultMessageConfig["font"] = (self.config["fonts"][self.fontOption], self.config["fontSizes"]["resultLabel"])
         resultMessage.config(resultMessageConfig)
 
@@ -108,6 +124,8 @@ class Minesweeper:
     def rightClick(self, event, arg):
         x = arg[0]
         y = arg[1]
+        if self.config["liveLogging"]:
+            print("Right click at: (" + str(x+1) + "," + str(y+1) + ")")
         buttonConfig = self.genericButtonConfig
         if self.buttonGrid[x][y]["relief"] == tk.RAISED:
             image = ImageTk.PhotoImage(file=self.config["imageFilePaths"]["unexploredFlag"])
@@ -136,6 +154,8 @@ class Minesweeper:
         self.buttonGrid[x][y].config(buttonConfig)
 
     def leftClick(self, x, y):
+        if self.config["liveLogging"]:
+            print("Left click at: (" + str(x+1) + "," + str(y+1) + ")")
         buttonConfig = self.genericButtonConfig
 
         if self.bombGrid[x][y] == -1:
