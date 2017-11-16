@@ -22,7 +22,8 @@ class Minesweeper:
         self.noOfTilesLeft = self.gridSize ** 2 - self.noOfBombs
         self.surroundingDistance = self.config["surroundingDistance"]
 
-        self.fontOption = 2
+        self.fontOption = 1
+        #Getting the starting time of launching and initializing the root window
         self.timeStart = time.time()
         self.seconds = 0
         self.minutes = 0
@@ -72,7 +73,9 @@ class Minesweeper:
         if self.config["liveLogging"]:
             print("Game Over!")
 
+        #Getting the total runtime
         self.seconds = int(time.time() - self.timeStart) - self.minutes * 60
+        #Converting into minutes and seconds format
         if self.seconds >= 60:
             self.minutes = self.seconds / 60
             self.seconds = self.seconds % 60
