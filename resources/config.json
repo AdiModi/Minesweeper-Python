@@ -1,7 +1,7 @@
 {
   "title": "Minesweeper",
-  "gridSize": 10,
-  "noOfBombs": 9,
+  "gridSize": 6,
+  "noOfBombs": 6,
   "surroundingDistance": 1,
   "imageFilePaths": {
     "exploredBomb": "D:\\Codes\\Python\\Minesweeper\\resources\\images\\exploredBomb.png",

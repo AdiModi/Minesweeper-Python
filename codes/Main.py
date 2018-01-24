@@ -22,7 +22,7 @@ class Minesweeper:
         self.noOfTilesLeft = self.gridSize ** 2 - self.noOfBombs
         self.surroundingDistance = self.config["surroundingDistance"]
 
-        self.fontOption = 2
+        self.fontOption = 4
         self.timeStart = time.time()
         self.seconds = 0
         self.minutes = 0
