@@ -1,40 +1,42 @@
 {
   "title": "Minesweeper",
-  "gridSize": 6,
-  "noOfBombs": 6,
-  "surroundingDistance": 1,
-  "imageFilePaths": {
-    "exploredBomb": "D:\\Codes\\Python\\Minesweeper\\resources\\images\\exploredBomb.png",
-    "flag": "D:\\Codes\\Python\\Minesweeper\\resources\\images\\flag.png",
-    "icon": "D:\\Codes\\Python\\Minesweeper\\resources\\images\\icon.ico",
-    "unexplored": "D:\\Codes\\Python\\Minesweeper\\resources\\images\\unexplored.png",
-    "unexploredBomb": "D:\\Codes\\Python\\Minesweeper\\resources\\images\\unexploredBomb.png",
-    "explored": "D:\\Codes\\Python\\Minesweeper\\resources\\images\\explored.png",
-    "unexploredFlag": "D:\\Codes\\Python\\Minesweeper\\resources\\images\\unexploredFlag.png"
+  "gamePlay":
+  {
+    "gridSize": 7,
+    "noOfBombs": 15,
+    "surroundingDistance": 1
   },
-  "colors":{
+  "paths":
+  {
+    "fileNames":
+    {
+      "icons":
+      {
+        "rootIcon": "icon.ico"
+      },
+      "images":
+      {
+        "exploredBomb": "exploredBomb.png",
+        "flag": "flag.png",
+        "unexplored": "unexplored.png",
+        "unexploredBomb": "unexploredBomb.png",
+        "explored": "explored.png",
+        "unexploredFlag": "unexploredFlag.png"
+      }
+    }
+  },
+  "colors": {
     "unexplored": "#224908",
     "explored": "#645244",
     "flag": "#891400"
   },
-  "fonts": [
-    "PacFont",
-    "NeuropolXRg-Regular",
-    "CrackMan-Regular",
-    "ArcadeClassic",
-    "Halo",
-    "Iomanoid-Regular",
-    "AstronBoyRg-Regular",
-    "Aurora",
-    "Ferrum",
-    "Gasalt",
-    "Videophreak"
-  ],
-  "fontSizes":{
-    "label": 25,
-    "button": 15,
-    "resultLabel": 30,
-    "resultButton": 10
+  "infoFrameConfig":{
+    "bd": 10,
+    "bg": "#E8D600"
+  },
+  "gridFrameConfig":{
+    "bd": 10,
+    "bg": "#E8D600"
   },
   "genericLabelConfig": {
     "bd": 10,
@@ -43,6 +45,10 @@
     "text": "",
     "bg": "#E8D6CB",
     "justify": "left",
+    "font":[
+      "Halo",
+      15
+    ],
     "relief": "raised"
   },
   "genericButtonConfig": {
@@ -54,14 +60,14 @@
     "compound": "center",
     "fg": "#891400"
   },
-  "frameConfig" : {
+  "frameConfig": {
     "bd": 10,
     "padx": 5,
     "pady": 5,
     "relief": "ridge",
     "bg": "#645244"
   },
-  "resultMessageConfig" : {
+  "resultMessageConfig": {
     "bd": 10,
     "width": 10,
     "height": 5,
@@ -69,14 +75,12 @@
     "relief": "ridge",
     "fg": "#000000"
   },
-  "resultButtonConfig" : {
+  "resultButtonConfig": {
     "bd": 5,
     "width": 20,
     "height": 5,
     "text": "Okay",
     "compound": "center",
     "fg": "#000000"
-  },
-  "printGrid" : false,
-  "liveLogging" : true
+  }
 }
