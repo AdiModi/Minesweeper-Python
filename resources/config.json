@@ -1,86 +1,71 @@
 {
   "title": "Minesweeper",
+  "font": "Montserrat",
   "gamePlay":
   {
     "gridSize": 7,
     "noOfBombs": 15,
     "surroundingDistance": 1
   },
-  "paths":
+  "fileNames":
   {
-    "fileNames":
+    "icons":
     {
-      "icons":
-      {
-        "rootIcon": "icon.ico"
-      },
-      "images":
-      {
-        "exploredBomb": "exploredBomb.png",
-        "flag": "flag.png",
-        "unexplored": "unexplored.png",
-        "unexploredBomb": "unexploredBomb.png",
-        "explored": "explored.png",
-        "unexploredFlag": "unexploredFlag.png"
-      }
+      "rootIcon": "rootIcon.ico"
+    },
+    "images":
+    {
+      "exploredBomb": "exploredBomb.png",
+      "bomb": "bomb.png",
+      "flag": "flag.png",
+      "unexplored": "unexplored.png",
+      "unexploredBomb": "unexploredBomb.png",
+      "explored": "explored.png",
+      "unexploredFlag": "unexploredFlag.png"
     }
   },
-  "colors": {
+  "buttonColors": {
     "unexplored": "#224908",
-    "explored": "#645244",
-    "flag": "#891400"
+    "explored": "#BEA57D"
+  },
+  "rootConfig":{
+    "bg": "#353535"
   },
   "infoFrameConfig":{
     "bd": 10,
-    "bg": "#E8D600"
+    "bg": "#353535"
   },
   "gridFrameConfig":{
-    "bd": 10,
-    "bg": "#E8D600"
-  },
-  "genericLabelConfig": {
-    "bd": 10,
-    "padx": 10,
-    "pady": 10,
-    "text": "",
-    "bg": "#E8D6CB",
-    "justify": "left",
-    "font":[
-      "Halo",
-      15
-    ],
-    "relief": "raised"
-  },
-  "genericButtonConfig": {
-    "bd": 10,
-    "width": 30,
-    "height": 30,
-    "text": " ",
-    "relief": "raised",
-    "compound": "center",
-    "fg": "#891400"
-  },
-  "frameConfig": {
     "bd": 10,
     "padx": 5,
     "pady": 5,
     "relief": "ridge",
-    "bg": "#645244"
+    "bg": "#D9D9D9"
   },
-  "resultMessageConfig": {
-    "bd": 10,
-    "width": 10,
-    "height": 5,
-    "text": "",
-    "relief": "ridge",
-    "fg": "#000000"
+  "genericLabelConfig": {
+    "bd": 7,
+    "padx": 10,
+    "pady": 10,
+    "bg": "#D9D9D9",
+    "justify": "left",
+    "font":[
+      "Montserrat",
+      15,
+      "bold"
+    ],
+    "relief": "raised"
   },
-  "resultButtonConfig": {
-    "bd": 5,
-    "width": 20,
-    "height": 5,
-    "text": "Okay",
-    "compound": "center",
-    "fg": "#000000"
+  "genericButtonConfig": {
+    "bd": 7,
+    "width": 30,
+    "height": 30,
+    "text": " ",
+    "relief": "raised",
+    "font":[
+      "Montserrat",
+      15,
+      "bold"
+    ],
+    "compound": "center"
   }
 }
