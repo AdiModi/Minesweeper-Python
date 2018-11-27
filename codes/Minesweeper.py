@@ -28,7 +28,6 @@ class Minesweeper:
         self.setupHyperParams(gridSize, noOfBombs)
         self.setupGrids()
 
-        print(self.bombGrid)
         self.setupGUI()
 
     def initializePaths(self):
@@ -44,11 +43,8 @@ class Minesweeper:
 
         self.gridSize = gridSize
         self.noOfBombs = noOfBombs
-        if self.noOfBombs > 50:
-            self.displayError('Keep the Grid Size < 15, else, it won\'t fit in the screen!')
-            sys.exit(1)
         if self.noOfBombs > self.gridSize ** 2:
-            self.displayError('Number of Bombs > Total Grid Size!')
+            displayError('Number of Bombs > Total Grid Size!')
             sys.exit(1)
 
         self.noOfBombsLeft = self.noOfBombs
@@ -131,8 +127,8 @@ class Minesweeper:
     def makeButton(self, pos):
         button = tk.Button(self.gridFrame, cursor='plus')
         image = PhotoImage(file=os.path.join(self.imagesDirectoryPath, 'unexplored.png'))
-        buttonConfig = {'bd': 7, 'width': 30, 'height': 30, 'text': ' ', 'relief': 'raised',
-                        'font': ['Montserrat', 15, 'bold'], 'compound': 'center'}
+        buttonConfig = {'bd': 7, 'width': 15, 'height': 15, 'text': ' ', 'relief': 'raised',
+                        'font': ['Montserrat', 11, 'bold'], 'compound': 'center'}
         buttonConfig['bg'] = '#224908'
         buttonConfig['image'] = image
         button.config(buttonConfig)
@@ -145,8 +141,8 @@ class Minesweeper:
         x = pos[0]
         y = pos[1]
 
-        buttonConfig = {'bd': 7, 'width': 30, 'height': 30, 'text': ' ', 'relief': 'raised',
-                        'font': ['Montserrat', 15, 'bold'], 'compound': 'center'}
+        buttonConfig = {'bd': 7, 'width': 15, 'height': 15, 'text': ' ', 'relief': 'raised',
+                        'font': ['Montserrat', 11, 'bold'], 'compound': 'center'}
         if self.cellStateGrid[x, y] == Minesweeper.CELL_STATES.UNOPENED:
             if self.noOfBombsLeft == 0:
                 return
@@ -181,8 +177,8 @@ class Minesweeper:
         x = pos[0]
         y = pos[1]
 
-        buttonConfig = {'bd': 7, 'width': 30, 'height': 30, 'text': ' ', 'relief': 'raised',
-                        'font': ['Montserrat', 15, 'bold'], 'compound': 'center'}
+        buttonConfig = {'bd': 7, 'width': 15, 'height': 15, 'text': ' ', 'relief': 'raised',
+                        'font': ['Montserrat', 11, 'bold'], 'compound': 'center'}
 
         if self.cellStateGrid[x, y] == Minesweeper.CELL_STATES.OPENED:
             return
@@ -238,7 +234,7 @@ class Minesweeper:
         for i in range(0, self.gridSize):
             for j in range(0, self.gridSize):
                 if self.bombGrid[i, j] == 1:
-                    buttonConfig = {'bd': 7, 'width': 30, 'height': 30, 'font': ['Montserrat', 15, 'bold']}
+                    buttonConfig = {'bd': 7, 'width': 15, 'height': 15, 'font': ['Montserrat', 11, 'bold']}
                     image = PhotoImage(file=os.path.join(self.imagesDirectoryPath, 'exploredBomb.png'))
                     buttonConfig['image'] = image
                     buttonConfig['bg'] = '#BEA57D'
@@ -263,14 +259,14 @@ parser.add_argument('difficulty', default='medium', help='The options are: easy,
 args = parser.parse_args()
 
 if not args.difficulty:
-    minesweeper = Minesweeper(7, 15)
+    minesweeper = Minesweeper(16, 40)
 else:
     difficulty = str(args.difficulty).lower()
     if difficulty == 'easy':
-        minesweeper = Minesweeper(5, 5)
-    elif difficulty == 'medium':
-        minesweeper = Minesweeper(7, 15)
+        minesweeper = Minesweeper(9, 10)
+    # elif difficulty == 'medium':
+    #     minesweeper = Minesweeper(16, 40)
     elif difficulty == 'hard':
-        minesweeper = Minesweeper(13, 30)
+        minesweeper = Minesweeper(24, 100)
     else:
         printError(message='Invalid Difficulty Level Option')
