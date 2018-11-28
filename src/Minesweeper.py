@@ -32,10 +32,10 @@ class Minesweeper:
 
     def initializePaths(self):
         self.projectDirectoryPath = os.path.abspath(os.path.join('..'))
-        self.codesDirectoryPath = os.path.join(self.projectDirectoryPath, 'codes')
+        self.codesDirectoryPath = os.path.join(self.projectDirectoryPath, 'src')
         self.genericDirectoryPath = os.path.join(self.projectDirectoryPath, 'generic')
         self.logsDirectoryPath = os.path.join(self.projectDirectoryPath, 'logs')
-        self.resourcesDirectoryPath = os.path.join(self.projectDirectoryPath, 'resources')
+        self.resourcesDirectoryPath = os.path.join(self.projectDirectoryPath, 'resrc')
         self.iconsDirectoryPath = os.path.join(self.resourcesDirectoryPath, 'icons')
         self.imagesDirectoryPath = os.path.join(self.resourcesDirectoryPath, 'images')
 
@@ -44,7 +44,7 @@ class Minesweeper:
         self.gridSize = gridSize
         self.noOfBombs = noOfBombs
         if self.noOfBombs > self.gridSize ** 2:
-            displayError('Number of Bombs > Total Grid Size!')
+            printError('Number of Bombs > Total Grid Size!')
             sys.exit(1)
 
         self.noOfBombsLeft = self.noOfBombs
@@ -255,11 +255,11 @@ def printError(message):
 
 
 parser = argparse.ArgumentParser(description='Play Light Minesweeper Anytime')
-parser.add_argument('difficulty', default='medium', help='The options are: easy, medium, hard')
+parser.add_argument('difficulty', default='medium', help='The options are: easy, hard')
 args = parser.parse_args()
 
 if not args.difficulty:
-    minesweeper = Minesweeper(16, 40)
+    minesweeper = Minesweeper(9, 10)
 else:
     difficulty = str(args.difficulty).lower()
     if difficulty == 'easy':
@@ -267,6 +267,6 @@ else:
     # elif difficulty == 'medium':
     #     minesweeper = Minesweeper(16, 40)
     elif difficulty == 'hard':
-        minesweeper = Minesweeper(24, 100)
+        minesweeper = Minesweeper(16, 40)
     else:
         printError(message='Invalid Difficulty Level Option')
